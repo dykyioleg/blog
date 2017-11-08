@@ -1,0 +1,5 @@
+<p><h4>Create User</h4></p>
+<form method= "post" action = {% url 'create-user' %}>
+{% csrf_token %}{{ form.as_p }}
+<button type = "submit">Send</button>
+</form>

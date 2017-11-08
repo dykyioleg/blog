@@ -1,0 +1,16 @@
+{% for entry in entrys %}
+<p><a href={% url 'simple-entry' entry.id %}>{{ entry.short_text }}</a><br/>
+{{ entry.user.username }}<br>
+{{ entry.comment_set.count }}<br/>
+<a href= {% url 'entry-delete' entry.id %}>Delete this Entry?</a>
+</p>
+{% endfor %}
+
+
+
+{% if user.is_authenticated %}
+<p><a href={% url 'create-entry' %}>Create Entry?</a></p>
+<p><a href={% url 'logout-user' %}>if you want logout,push her!</a></p>
+{% else %}
+<p>If you want to create entry, you need <a href={% url 'auth-user' %}>authenticate</a></p>
+{% endif %}

@@ -1,0 +1,5 @@
+<p><h4>Auth User</h4></p>
+<form method= "post" action = {% url 'auth-user' %}>
+{% csrf_token %}{{ form.as_p }}
+<button type = "submit">Send</button>
+</form>

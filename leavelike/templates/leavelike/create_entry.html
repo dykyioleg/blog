@@ -1,0 +1,5 @@
+<form method= "post" action = {% url 'create-entry' %}>
+{% csrf_token %}
+{{ form }}
+<input type="submit" value="Create entry"/>
+</form>

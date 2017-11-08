@@ -1,0 +1,14 @@
+<p> {{ entry.entry_text }}</p>
+<p><a href={% url 'entry-likeup' entry.id %}>{{ entry.number_like }}</a></p>
+<p><a href={% url 'entry-edit' entry.id %}>Edit your entry</a></p>
+
+<form method= "post" action = {% url 'entry-addcom' entry.id %}>
+{% csrf_token %}{{ form }}
+<input type = "submit">
+</form>
+
+<ol>
+{% for comment in entry.comment_set.all %}
+	<li>{{ comment }}: {{ comment.user.username }}<a href  = {% url 'entry-delet' comment.id %}> Delete comment?</a></li>
+{% endfor %}
+</ol>
